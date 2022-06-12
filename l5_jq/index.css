@@ -1,0 +1,84 @@
+.back{
+    background:#5CDB95 ;
+    
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    right:0;
+    
+}
+
+.header{
+    background-color: #05386B;
+    height: 10%;
+    width: 100%;
+    border-bottom: 4px solid  rgb(45, 24, 50) ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    color:#EDF5E1;
+    font-family: "Stencil Std, fantasy";
+}
+
+.container{
+    background-color:#5CDB95;
+    top:10%;
+    height:90%;
+    width: 100%;
+    /* display: flex; */
+    position: fixed;
+    left: 7%;
+    padding : 40px;
+}
+
+.madlibs{
+    border: 3.5px dotted rgb(45, 24, 50);
+    width: 90%;
+    height: 60%;
+    background-color: #8EE4AF;
+    padding: 10px;
+}
+
+.tomthumb{
+    border: 3.5px dotted rgb(45, 24, 50);
+    width: 90%;
+    height: 70%;
+    background-color: #8EE4AF;
+    padding: 10px;
+}
+
+
+.clickers{
+    background-color:#379683;
+    top: 10%;
+    height:100%;
+    width: 20%;
+    right: 80%;
+    /* display: flex; */
+    position: fixed;
+    border-right: 4px solid rgb(45, 24, 50);
+}
+
+.story{
+    margin-top: 10px;
+    display: block;
+    font-family: "Stencil Std, fantasy";
+    font-size: 95% ;
+}
+
+.size{
+    margin-top: 10px;
+    display: block;
+    font-family: "Stencil Std, fantasy";
+    font-size: 95% ;
+
+}
+
+
+
