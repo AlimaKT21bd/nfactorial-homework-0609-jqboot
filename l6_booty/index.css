@@ -1,0 +1,127 @@
+.background_after{
+    width: 85%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0, 0.5);   
+    display :flex;
+    z-index: 2;
+}
+
+.background{
+    width: 85%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    
+    background-color: rgb(67, 66, 66);
+    display :flex; 
+    justify-content:center;
+    align-items: center; 
+}
+
+.container{
+    display: flex;
+    position: fixed;
+
+    background-color: rgb(28, 26, 24);
+    color: rgb(83, 82, 82);
+    border:rgb(83, 80, 80) solid;
+    width : 15%;
+    height: 100%;
+    
+    top : 0;
+    left : 0;
+    
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    cursor: pointer;
+    
+}
+
+.container_after{
+    display: flex;
+    position: fixed;
+
+    background-color: rgb(28, 26, 24);
+    color: rgb(83, 82, 82);
+    border:rgb(83, 80, 80) solid;
+    width : 27%;
+    height: 100%;
+    
+    top : 0;
+    left : 0;
+    
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    cursor: pointer;
+}
+
+
+.clickers{
+    background-color: rgba(138, 130, 130, 0.151);
+    width: 70%;
+    height:8%;
+    position: absolute;
+    top: 75%;
+    bottom: 25%;
+    padding: 10px;
+    left:22%;
+    border-radius: 30px;
+    color: rgb(168, 161, 161);
+    display :flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 4;
+}
+
+
+
+.PP{
+    cursor: pointer;
+    justify-content: center;
+}
+    
+
+
+.progress {
+    position: absolute;
+    display: flex;
+    width: 80%;
+    margin: 45px auto;
+    justify-content: center;
+    left: 15%
+}
+.progress-bar {
+    position: relative;
+    width: 900px;
+    height: 5px;
+    background-color: rgb(238, 238, 238);
+    vertical-align: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.now {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 5px;
+    width: 70%;
+    background: rgb(73, 25, 123);
+}
+
+.now::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    width: 5px;
+    height: 8px;
+    background-color: rgb(205, 121, 241);
+} 

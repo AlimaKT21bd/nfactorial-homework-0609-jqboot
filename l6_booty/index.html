@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href = "./index.css">
+    <title> Music Player from Aliexpress </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+</head>
+<body>
+    <div class="background" >
+
+        <div class="background_after"></div>
+        <video id = "video-background"   width = 100% >
+            <source src = "BlackSwan.mp4"></source>
+        </video>
+
+    </div>
+    <div class="clickers">
+        <div class="PP">
+            <div  onclick = "playVideo()" type = "button" id = "btn-change-background" >
+                <i class="fa fa-play-circle fa-2x"></i>
+            </div>
+        </div>
+        
+        <div class="progress">
+            <span class="start"></span>
+            <div class="progress-bar">
+                <div class="now"></div>
+            </div>
+            <span class="end"></span>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <button class="btn btn-primary" type="button" style = "--bs-btn-bg:#535252;  --bs-btn-border-color: #a19f9f; --bs-btn-hover-bg:#2b2b2b;" ; data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" >SOUNDS</button>
+
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="--bs-offcanvas-width:27%;">
+            <div class="container_after">
+                <div style="color: rgb(168, 161, 161);";>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                
+                <div class = "Pbutton" onclick = "Birds()" type = "button" id = "btn-change-background"  >
+                    <i class="fa fa-solid fa-dove fa-3x"></i>
+                </div>
+                <audio src = "audio/bird.wav" id = "audio_bird"></audio>
+        
+                <div class = "Pbutton" onclick = "Beep()" type = "button" id = "btn-change-background" >
+                    <i class="fa fa-solid fa-car fa-3x"></i>
+                </div>
+                <audio src = "audio/beep.wav" id = "audio_beep"></audio>
+        
+                <div class = "Pbutton" onclick = "Drum()" type = "button" id = "btn-change-background" >
+                    <i class="fa fa-solid fa-drum fa-3x"></i>
+                </div>
+                <audio src = "audio/drum.wav" id = "audio_drum"></audio>
+        
+                
+                <div class = "Pbutton" onclick = "SIUU()" type = "button" id = "btn-change-background" >
+                    <i class="fa fa-solid fa-futbol fa-3x"></i>
+                </div>
+                <audio src = "audio/siu.mp3" id = "audio_siuu"></audio> 
+            </div>
+           
+        </div>
+        
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+<script>
+    let Pvideo = document.getElementById("video-background");
+    const Pbutton = document.getElementById("btn-change-background");
+
+    const audio_bird =document.getElementById("audio_bird"); 
+    const audio_beep =document.getElementById("audio_beep"); 
+    const audio_drum =document.getElementById("audio_drum"); 
+    const audio_siu =document.getElementById("audio_siuu"); 
+    
+    function playVideo(){
+        if(Pvideo.paused){
+            Pvideo.play();
+            Pbutton.innerHTML = '<i class="fa fa-pause-circle fa-2x"></i>';
+        }else{
+            Pvideo.pause();
+            Pbutton.innerHTML = '<i class="fa fa-play-circle fa-2x"></i>';
+        }
+    }
+    function Birds(){
+        audio_bird.play();
+    }
+    function Beep(){
+        audio_beep.play();
+    }
+    function Drum(){
+        audio_drum.play();
+    }
+    function SIUU(){
+        audio_siu.play();
+    }
+
+    let vidoo = document.getElementById('video-background')
+    let start = document.querySelector('.start')
+    const end = document.querySelector('.end')
+    const progressBar = document.querySelector('.progress-bar')
+    const now = document.querySelector('.now')
+
+    function conversion (value) {
+        let minute = Math.floor(value / 60)
+        minute = minute.toString().length === 1 ? ('0' + minute) : minute
+        let second = Math.round(value % 60)
+        second = second.toString().length === 1 ? ('0' + second) : second
+        return `${minute}:${second}`
+    }
+
+    vidoo.onloadedmetadata = function () {
+        end.innerHTML = conversion(vidoo.duration)
+        start.innerHTML = conversion(vidoo.currentTime)
+    }
+
+    progressBar.addEventListener('click', function (event) {
+        let coordStart = this.getBoundingClientRect().left
+        let coordEnd = event.pageX
+        let p = (coordEnd - coordStart) / this.offsetWidth
+        now.style.width = p.toFixed(3) * 100 + '%'
+
+        vidoo.currentTime = p * vidoo.duration
+        vidoo.play()
+    })
+
+    setInterval(() => {
+        start.innerHTML = conversion(vidoo.currentTime)
+        now.style.width = vidoo.currentTime / vidoo.duration.toFixed(3) * 100 + '%'
+    }, 1000)
+
+</script>
+
+</html>
